@@ -46,8 +46,8 @@ public class EmarketDataServiceFake implements EmarketDataService {
         product.description = "";
         product.pictures = "1-1.jpg\n" +
                 "1_2.jpg";
-
-        products.add(product);
+        for (int i = 0; i<12; i++)
+            products.add(product);
     }
 
     @Override

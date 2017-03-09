@@ -2,6 +2,7 @@ package controllers;
 
 import play.mvc.*;
 
+import services.impl.EmarketDataServiceFake;
 import views.html.*;
 
 /**
@@ -17,7 +18,30 @@ public class HomeController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result index() {
-        return ok(index.render("Emarket by Play! framework."));
+        EmarketDataServiceFake emarketDataServiceFake = new EmarketDataServiceFake();
+        return ok(index.render( emarketDataServiceFake.getProduct(1)));
     }
 
+
+
+    //get product detail
+    public Result getProductDetail(Integer id) {
+        return ok(product_detail.render());
+    }
+
+
+    //getSpecialOffer
+    public Result getSpecialOffer() {
+        return ok(special_offer.render());
+    }
+
+    //getDelivery
+    public Result getDelivery(){
+      return ok(normal.render());
+    }
+
+    //getContact
+    public Result getContact() {
+      return ok(contact.render());
+    }
 }
