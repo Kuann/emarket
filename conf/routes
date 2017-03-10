@@ -3,12 +3,20 @@
 # ~~~~
 
 # An example controller showing a sample home page
+
+#HOME CONTROLLER
 GET     /                           controllers.HomeController.index
-GET     /product/:id                controllers.ProductController.product(id: Integer)
-GET     /products                   controllers.ProductController.getProducts()
-GET     /product_summary            controllers.ProductController.getProductRummary()
 GET     /delivery                   controllers.HomeController.getDelivery()
 GET     /contact                    controllers.HomeController.getContact()
+
+#PRODUCT CONTROLLER
+GET     /product/:id                controllers.ProductController.product(id: Integer)
+GET     /products                   controllers.ProductController.getProducts()
+GET     /cart                       controllers.HomeController.guest_ViewCart()
+GET     /products/:type             controllers.ProductController.guest_ViewProductListByType(type: String)
+GET     /products/search/:key       controllers.ProductController.guest_SearchProduct(key: String)
+#------
+POST    /products/search            controllers.ProductController.searchProductByForm()
 
 GET     /special_offer              controllers.HomeController.getSpecialOffer()
 # Map static resources from the /public folder to the /assets URL path

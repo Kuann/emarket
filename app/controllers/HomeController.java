@@ -29,6 +29,13 @@ public class HomeController extends Controller {
         return ok(product_detail.render());
     }
 
+    /**
+     * get cart
+     * @return
+     */
+    public Result guest_ViewCart() {
+        return ok(product_summary.render());
+    }
 
     //getSpecialOffer
     public Result getSpecialOffer() {
