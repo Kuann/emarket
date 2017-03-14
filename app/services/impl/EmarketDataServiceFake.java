@@ -14,7 +14,7 @@ import java.util.List;
 public class EmarketDataServiceFake implements EmarketDataService {
 
     private List<Product> products;
-
+/*
     public EmarketDataServiceFake() {
         products = new LinkedList<>();
         Product product = new Product();
@@ -49,7 +49,7 @@ public class EmarketDataServiceFake implements EmarketDataService {
 
         products.add(product);
     }
-
+*/
     @Override
     public List<Product> getProducts() {
         return products;
@@ -57,6 +57,6 @@ public class EmarketDataServiceFake implements EmarketDataService {
 
     @Override
     public Product getProduct(Integer id) {
-        return products.stream().filter(product -> id.equals(product.id)).findFirst().orElse(null);
+        return products.stream().filter(product -> id.equals(product.getId())).findFirst().orElse(null);
     }
 }

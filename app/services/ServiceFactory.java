@@ -1,6 +1,7 @@
 package services;
 
 import services.impl.EmarketDataServiceFake;
+import services.impl.EmarketDataServiceImpl;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -11,13 +12,15 @@ import javax.inject.Singleton;
 @Singleton
 public class ServiceFactory {
     private EmarketDataServiceFake emarketDataServiceFake;
+    private EmarketDataServiceImpl emarketDataServiceImpl;
 
     @Inject
-    public ServiceFactory(EmarketDataServiceFake emarketDataServiceFake) {
-        this.emarketDataServiceFake =emarketDataServiceFake;
+    public ServiceFactory(EmarketDataServiceFake emarketDataServiceFake, EmarketDataServiceImpl emarketDataServiceImpl) {
+        this.emarketDataServiceFake = emarketDataServiceFake;
+        this.emarketDataServiceImpl = emarketDataServiceImpl;
     }
 
     public EmarketDataService getEmarketDataService() {
-        return emarketDataServiceFake;
+        return this.emarketDataServiceImpl;
     }
 }
